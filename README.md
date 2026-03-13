@@ -1,21 +1,35 @@
-import numpy as np
+# Monte Carlo Option Pricing
 
-# Parameters
-S0 = 100        # Initial stock price
-K = 100         # Strike price
-T = 1.0         # Time to maturity (1 year)
-r = 0.05        # Risk-free rate
-sigma = 0.2     # Volatility
-simulations = 10000
+This project implements Monte Carlo simulation to price a European call option using Python.
 
-# Generate random stock price paths
-Z = np.random.standard_normal(simulations)
-ST = S0 * np.exp((r - 0.5 * sigma**2) * T + sigma * np.sqrt(T) * Z)
+Monte Carlo methods are widely used in quantitative finance to price derivatives and evaluate financial risk.
 
-# Option payoff (European Call)
-payoff = np.maximum(ST - K, 0)
+## Model Overview
 
-# Discounted expected payoff
-option_price = np.exp(-r * T) * np.mean(payoff)
+The model simulates thousands of possible future stock prices using geometric Brownian motion.
 
-print("Estimated European Call Option Price:", option_price)
+Steps:
+
+1. Simulate random stock price paths
+2. Calculate option payoff
+3. Average simulated payoffs
+4. Discount to present value
+
+## Formula
+
+Stock price simulation:
+
+S(T) = S0 * exp((r - 0.5σ²)T + σ√T Z)
+
+Where:
+
+S0 = initial stock price  
+σ = volatility  
+r = risk-free rate  
+T = time to maturity  
+Z = random normal variable  
+
+## Tools
+
+Python  
+NumPy
