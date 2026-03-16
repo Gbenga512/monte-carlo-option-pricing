@@ -51,6 +51,8 @@ T = 1 year    Time to maturity
 r = 5%        Risk-free rate  
 σ = 20%       Volatility  
 Simulations = 10,000
+Estimated European call Option Price = 10.4
+
 ## Output
 
 The model computes the option price as:
